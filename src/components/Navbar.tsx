@@ -1,26 +1,51 @@
 import Link from "next/link";
-import { Trophy } from "lucide-react";
+import { Trophy, Search, Menu } from "lucide-react";
 
 export function Navbar() {
     return (
-        <nav className="border-b border-white/10 bg-secondary/50 backdrop-blur-md sticky top-0 z-50">
-            <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <Trophy className="w-6 h-6 text-primary" />
-                    <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                        KickForecast
-                    </span>
-                </Link>
+        <header className="bg-secondary text-white border-b border-gray-800 sticky top-0 z-50">
+            <div className="container mx-auto px-4">
+                {/* Top Bar */}
+                <div className="flex items-center justify-between h-16">
+                    {/* Logo */}
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <Trophy className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+                        <span className="text-4xl font-logo text-white tracking-wide group-hover:text-primary transition-colors">
+                            KickForecast
+                        </span>
+                    </Link>
 
-                <div className="flex items-center gap-6">
-                    <Link href="/" className="text-sm font-medium text-gray-300 hover:text-primary transition-colors">
-                        Predictions
-                    </Link>
-                    <Link href="/about" className="text-sm font-medium text-gray-300 hover:text-primary transition-colors">
-                        About
-                    </Link>
+                    {/* Desktop Navigation */}
+                    <nav className="hidden md:flex items-center gap-6">
+                        <Link href="/" className="text-sm font-bold uppercase hover:text-primary transition-colors">Home</Link>
+                        <Link href="/news" className="text-sm font-bold uppercase hover:text-primary transition-colors">News</Link>
+                        <Link href="/features" className="text-sm font-bold uppercase hover:text-primary transition-colors">Features</Link>
+                        <Link href="/predictions" className="text-sm font-bold uppercase hover:text-primary transition-colors">Predictions</Link>
+                        <Link href="/stats" className="text-sm font-bold uppercase hover:text-primary transition-colors">Stats</Link>
+                    </nav>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-4">
+                        <button className="p-2 hover:text-primary transition-colors">
+                            <Search className="h-5 w-5" />
+                        </button>
+                        <button className="md:hidden p-2 hover:text-primary transition-colors">
+                            <Menu className="h-6 w-6" />
+                        </button>
+                    </div>
                 </div>
             </div>
-        </nav>
+
+            {/* Secondary Nav (Leagues) */}
+            <div className="bg-[#121212] border-b border-gray-800 hidden md:block">
+                <div className="container mx-auto px-4 flex gap-6 overflow-x-auto py-2">
+                    <Link href="/premier-league" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">Premier League</Link>
+                    <Link href="/champions-league" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">Champions League</Link>
+                    <Link href="/la-liga" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">La Liga</Link>
+                    <Link href="/serie-a" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">Serie A</Link>
+                    <Link href="/bundesliga" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">Bundesliga</Link>
+                </div>
+            </div>
+        </header>
     );
 }

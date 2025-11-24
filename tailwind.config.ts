@@ -9,24 +9,33 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                background: "var(--background)",
-                foreground: "var(--foreground)",
+                background: "#121212", // F365 Dark BG
+                foreground: "#e0e0e0", // Light Grey Text
                 primary: {
-                    DEFAULT: "#10B981", // Emerald 500
-                    foreground: "#FFFFFF",
+                    DEFAULT: "#e50000", // F365 Red
+                    foreground: "#ffffff",
                 },
                 secondary: {
-                    DEFAULT: "#0F172A", // Slate 900
-                    foreground: "#F8FAFC", // Slate 50
+                    DEFAULT: "#1e1e1e", // Header/Card Dark Grey
+                    foreground: "#ffffff",
                 },
                 accent: {
-                    DEFAULT: "#F59E0B", // Amber 500
-                    foreground: "#FFFFFF",
+                    DEFAULT: "#e50000", // F365 Red
+                    foreground: "#ffffff",
                 },
                 card: {
-                    DEFAULT: "#1E293B", // Slate 800
-                    foreground: "#F8FAFC",
+                    DEFAULT: "#1e1e1e", // Card Dark Grey
+                    foreground: "#e0e0e0",
                 },
+                muted: {
+                    DEFAULT: "#a0a0a0", // Medium Grey
+                    foreground: "#121212",
+                }
+            },
+            fontFamily: {
+                sans: ["var(--font-roboto)", "sans-serif"],
+                heading: ["var(--font-roboto-condensed)", "sans-serif"],
+                logo: ["var(--font-nanum)", "cursive"],
             },
         },
     },

@@ -1,45 +1,42 @@
 import Link from "next/link";
-import { Calendar, ArrowRight } from "lucide-react";
-import { format } from "date-fns";
 import { Post } from "@/lib/api";
+import { format } from "date-fns";
 
-interface PostCardProps {
-    post: Post;
-}
-
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post }: { post: Post }) {
     return (
-        <div className="group relative bg-card rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="flex flex-col md:flex-row gap-6 bg-card border border-gray-800 rounded-lg overflow-hidden hover:border-primary transition-colors group">
+            {/* Image Section */}
+            <div className="w-full md:w-64 h-48 md:h-auto relative shrink-0">
+                <div className="absolute inset-0 bg-gray-800">
+                    {/* Placeholder for image if no real image is available */}
+                    <div className="w-full h-full flex items-center justify-center text-gray-600">
+                        <span className="text-4xl font-bold opacity-20">F365</span>
+                    </div>
+                </div>
+            </div>
 
-            <div className="p-6 relative">
-                <div className="flex items-center gap-2 text-sm text-primary mb-3">
-                    <Calendar className="w-4 h-4" />
-                    <span>{post.match_date ? format(new Date(post.match_date), "MMM d, yyyy • HH:mm") : "Date TBD"}</span>
+            {/* Content Section */}
+            <div className="flex-1 p-6 flex flex-col">
+                <div className="mb-2 flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider">
+                    <span>Match Preview</span>
+                    <span className="text-gray-600">•</span>
+                    <span className="text-gray-400">{format(new Date(post.created_at), "MMM d, yyyy")}</span>
                 </div>
 
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    <Link href={`/posts/${post.slug}`}>
-                        <span className="absolute inset-0" />
+                <Link href={`/posts/${post.slug}`} className="group-hover:text-primary transition-colors">
+                    <h2 className="text-2xl font-bold font-heading uppercase text-white mb-3 leading-tight">
                         {post.title}
-                    </Link>
-                </h3>
+                    </h2>
+                </Link>
 
-                <p className="text-gray-400 mb-4 line-clamp-2">
-                    {post.summary || post.content.substring(0, 100)}...
+                <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                    {post.summary}
                 </p>
 
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
-                    <div className="flex items-center gap-4 text-sm">
-                        <div className="flex flex-col">
-                            <span className="text-gray-500 text-xs">Match</span>
-                            <span className="font-medium">{post.home_team} vs {post.away_team}</span>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center gap-1 text-primary font-medium text-sm">
-                        Read Prediction <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                <div className="mt-auto">
+                    <Link href={`/posts/${post.slug}`} className="text-xs font-bold uppercase text-primary border-b-2 border-transparent hover:border-primary transition-all">
+                        Read Full Preview
+                    </Link>
                 </div>
             </div>
         </div>
