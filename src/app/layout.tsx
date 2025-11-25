@@ -1,6 +1,6 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto_Condensed, Roboto, Nanum_Pen_Script } from "next/font/google";
-import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 
 const robotoCondensed = Roboto_Condensed({
@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${robotoCondensed.variable} ${roboto.variable} ${nanum.variable} min-h-screen bg-background text-foreground antialiased`}>
         <Navbar />
-        <main className="container mx-auto px-4 py-8 max-w-5xl">
+        <main className="container mx-auto px-6 md:px-12 py-8 max-w-xl">
           {children}
         </main>
       </body>

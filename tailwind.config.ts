@@ -9,18 +9,22 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                background: "#121212", // F365 Dark BG
+                background: "#121212", // Deep Matte
                 foreground: "#e0e0e0", // Light Grey Text
                 primary: {
-                    DEFAULT: "#e50000", // F365 Red
+                    DEFAULT: "#E30B5D", // Raspberry (Attention)
                     foreground: "#ffffff",
                 },
                 secondary: {
                     DEFAULT: "#1e1e1e", // Header/Card Dark Grey
                     foreground: "#ffffff",
                 },
+                success: {
+                    DEFAULT: "#00A693", // Persian Green (Action/Success)
+                    foreground: "#ffffff",
+                },
                 accent: {
-                    DEFAULT: "#e50000", // F365 Red
+                    DEFAULT: "#E30B5D", // Raspberry
                     foreground: "#ffffff",
                 },
                 card: {

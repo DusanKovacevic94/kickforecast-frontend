@@ -4,7 +4,7 @@ import { Trophy, Search, Menu } from "lucide-react";
 export function Navbar() {
     return (
         <header className="bg-secondary text-white border-b border-gray-800 sticky top-0 z-50">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-6 md:px-12 max-w-7xl">
                 {/* Top Bar */}
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -37,13 +37,13 @@ export function Navbar() {
             </div>
 
             {/* Secondary Nav (Leagues) */}
-            <div className="bg-[#121212] border-b border-gray-800 hidden md:block">
-                <div className="container mx-auto px-4 flex gap-6 overflow-x-auto py-2">
-                    <Link href="/premier-league" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">Premier League</Link>
-                    <Link href="/champions-league" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">Champions League</Link>
-                    <Link href="/la-liga" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">La Liga</Link>
-                    <Link href="/serie-a" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">Serie A</Link>
-                    <Link href="/bundesliga" className="text-xs font-bold text-gray-400 uppercase hover:text-primary whitespace-nowrap">Bundesliga</Link>
+            <div className="bg-[#0a0a0a] border-b border-gray-800 hidden md:block">
+                <div className="container mx-auto px-6 md:px-12 flex gap-6 overflow-x-auto py-2 max-w-7xl">
+                    <Link href="/premier-league" className="text-xs font-bold text-gray-400 uppercase hover:text-success whitespace-nowrap">Premier League</Link>
+                    <Link href="/champions-league" className="text-xs font-bold text-gray-400 uppercase hover:text-success whitespace-nowrap">Champions League</Link>
+                    <Link href="/la-liga" className="text-xs font-bold text-gray-400 uppercase hover:text-success whitespace-nowrap">La Liga</Link>
+                    <Link href="/serie-a" className="text-xs font-bold text-gray-400 uppercase hover:text-success whitespace-nowrap">Serie A</Link>
+                    <Link href="/bundesliga" className="text-xs font-bold text-gray-400 uppercase hover:text-success whitespace-nowrap">Bundesliga</Link>
                 </div>
             </div>
         </header>
